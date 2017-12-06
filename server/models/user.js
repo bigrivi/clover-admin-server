@@ -8,6 +8,7 @@ var User = new restful.model(
      password_hash: 'string',
 	 realname: 'string',
 	 gender: 'string',
+	 hobby: 'string',
 	 email: 'string',
 	 creation_on: 'date',
 	 avatar: 'string'
