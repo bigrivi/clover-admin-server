@@ -3,9 +3,11 @@ var product = require('./models/product');
 var category = require('./models/category');
 var tag = require('./models/tag');
 var attachment = require('./models/attachment');
+var department = require('./models/department');
 
 var userController = require('./controllers/users');
 var attachmentController = require('./controllers/attachments');
+var departmentController = require('./controllers/departments');
 
 var pager = require('./middlewares/pager');
 var uploader = require('./middlewares/uploader');
@@ -19,10 +21,12 @@ exports = module.exports = function(app){
 	[product,"products"],
 	[category,"categories"],
 	[attachment,"attachments"],
+	[department,"departments"],
 	[tag,"tags"]];
 	
 	user.route('authenticate',userController.authenticate)
 	attachment.route('preview',attachmentController.preview)
+	department.route('getTreeNode',departmentController.getTreeNode)
 	//attachment.route('preview',attachmentController.preview).before("preview",authService.userLoginRequire);
 	
 	for(var i=0;i<models.length;i++){
@@ -30,10 +34,10 @@ exports = module.exports = function(app){
 		var key = models[i][1]; //key
 		
 		//token验证
-		model.before('get',authService.userLoginRequire)
-		model.before('put',authService.userLoginRequire)
-		model.before('post',authService.userLoginRequire)
-		model.before('delete',authService.userLoginRequire)
+		//model.before('get',authService.userLoginRequire)
+		//model.before('put',authService.userLoginRequire)
+		//model.before('post',authService.userLoginRequire)
+		//model.before('delete',authService.userLoginRequire)
 		
 		try{
 			var controller = require('./controllers/'+key);

@@ -10,6 +10,7 @@ var User = new restful.model(
 	 gender: 'string',
 	 hobby: 'string',
 	 email: 'string',
+	 department_id:{ type: 'ObjectId', ref: 'department' },
 	 creation_on: 'date',
 	 avatar: 'string'
   })).methods(['get', 'post', 'put', 'delete'])

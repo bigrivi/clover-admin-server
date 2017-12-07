@@ -27,10 +27,11 @@
   ],
   "scripts": {
     "test": "make test",
-    "start": "node --max-old-space-size=1700 ./server/app"
+    "start": "supervisor node --max-old-space-size=1700 ./server/app"
   },
   "main": "index.js",
   "dependencies": {
+    "async": "^2.6.0",
     "bcrypt": "^1.0.3",
     "composable-middleware": "^0.3.0",
     "express-jwt": "^5.3.0",
