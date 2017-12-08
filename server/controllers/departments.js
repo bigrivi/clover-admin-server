@@ -129,7 +129,7 @@ exports.onDeleteBefore= function(req, res, next)
 
 exports.getTreeNode = function(req, res, next)
 {
-	getTreeData(null,true,function(list){
+	getTreeData(null,true,null,function(list){
 		if(list.length<=0){
 			res.json([])
 			res.end()
@@ -161,7 +161,7 @@ function getChildNodes(source,includeParent,lft,rgt,depth){
 }
 
 
-function getTreeData(parentId,includeParent,callback)
+function getTreeData(parentId,includeParent,populates,callback)
 {
 	var findParams = {}
 		var parentData;
@@ -178,9 +178,17 @@ function getTreeData(parentId,includeParent,callback)
 				parentData['lft'] += 1;
 				parentData['rgt'] -= 1;
 			}
-			DepartmentModel.find({lft: { $gte: parentData["lft"], $lte: parentData["rgt"] }}).sort({ lft: 1 }).exec(function(err, list) {
-				callback(list)
-			});
+			if(populates){
+				DepartmentModel.find({lft: { $gte: parentData["lft"], $lte: parentData["rgt"] }}).populate(populates).sort({ lft: 1 }).exec(function(err, list) {
+					callback(list)
+				});
+			}
+			else{
+				DepartmentModel.find({lft: { $gte: parentData["lft"], $lte: parentData["rgt"] }}).sort({ lft: 1 }).exec(function(err, list) {
+					callback(list)
+				});
+			}
+			
 		});
 }
 
@@ -191,7 +199,8 @@ exports.onGetBefore= function(req, res, next)
 		next()
 	}
 	else{
-		getTreeData(req.query.parentId,true,function(list){
+		var populates = {path: 'leader',select: 'realname',}
+		getTreeData(req.query.parentId,true,populates,function(list){
 			var right = [];
 			_.each(list,function(row,index){
 				if(right.length>0){
