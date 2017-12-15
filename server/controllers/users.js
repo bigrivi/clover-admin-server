@@ -1,4 +1,4 @@
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
 var UserModel = require('../models/user');
 var _ = require('underscore');
 var fs = require("fs")
@@ -23,6 +23,7 @@ exports.authenticate = function(req, res, next)
 				res.json({"err":"用户不存在"})
 				return
 			}
+			console.log(password)
 			bcrypt.compare(password, result.password_hash, function(err, success){
 				if (err) console.log(err);
 				if(success){
@@ -31,6 +32,7 @@ exports.authenticate = function(req, res, next)
 				}else
 					res.json({"err":"密码错误,请正确填写"})
 			});
+			
 			
 		})
 	}else{

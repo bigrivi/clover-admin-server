@@ -8,6 +8,7 @@ var department = require('./models/department');
 var userController = require('./controllers/users');
 var attachmentController = require('./controllers/attachments');
 var departmentController = require('./controllers/departments');
+var toolsController = require('./controllers/tools');
 
 var pager = require('./middlewares/pager');
 var uploader = require('./middlewares/uploader');
@@ -79,7 +80,6 @@ exports = module.exports = function(app){
 	for(var i=0;i<models.length;i++){
 		models[i][0].register(app, "/"+models[i][1]);
 	}
-	
-	
+	app.use('/export', toolsController.exportData);
 	
 }
