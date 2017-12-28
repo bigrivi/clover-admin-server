@@ -6,7 +6,7 @@ var encoding = require('encoding');
 var xml2js = require('xml2js');
 var nodeExcel = require('excel-export');
 
-exports.exportData = function(req, res, next)
+exports = module.exports = function(req, res, next)
 {
 	var format = req.query.format //导出格式，csv/excel/json/xml
 	var resource = req.query.resource //导出模型
@@ -16,7 +16,7 @@ exports.exportData = function(req, res, next)
 	var colSep = req.query.colSep || ",";
 	var sortField = req.query.sortField || "_id"; //排序字段
 	var sort = req.query.sort || "desc"; //排序
-	var skipHeader = req.query.skipHeader || true; //不显示头
+	var skipHeader = req.query.skipHeader || true; //不显示表格头
 	var fieldsArr = fields.split(",");
 	var fieldNamesArr = fieldNames.split(",");
 	var populates = req.query.populates || "";//category_id,tags
@@ -36,7 +36,7 @@ exports.exportData = function(req, res, next)
 	_.each(populatesArr,function(item){
 		model.populate({path: item,select: 'name-_id'})
 	})
-	model.exec(function(err,data){
+	req.quer.exec(function(err,data){
 		var formatData = _.map(data,function(row){
 			var formatRow = {};
 			_.each(fieldsArr,function(fieldName){
