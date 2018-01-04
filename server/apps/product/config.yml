@@ -1,0 +1,20 @@
+alias: product
+navs:
+    System Preference:
+        children:
+            Organization Manage:
+                app: account
+                icon: sitemap
+                children:
+                    Users List:
+                        app: account
+                        icon: users
+                        link: account/userInfo
+                    Department:
+                        app: account
+                        link: account/department
+                        icon: sitemap
+                    Role Manage:
+                        app: account
+                        icon: male
+                        link: account/authRole

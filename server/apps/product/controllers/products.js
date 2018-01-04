@@ -2,7 +2,7 @@
 var productModel = require('../models/product');
 var _ = require('underscore');
 var fs = require("fs")
-var AttachmentModel = require('../models/attachment');
+var AttachmentModel = require('../../uploader/models/attachment');
 
 
 function updateTagCount(tagId){

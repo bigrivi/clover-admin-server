@@ -1,6 +1,4 @@
 var fs = require("fs")
-var tagModel = require('../models/tag');
-var productModel = require('../models/product');
 var AttachmentModel = require('../models/attachment');
 
 exports.onDeleteBefore= function(req, res, next)

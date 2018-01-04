@@ -1,7 +1,7 @@
 var _ = require('underscore');
 var fs = require('fs')
 const crypto = require('crypto');
-var AttachmentModel = require('../models/attachment');
+var AttachmentModel = require('../apps/uploader/models/attachment');
 function decodeBase64File(fileType,dataString) {
   var response = {}
   response.type = fileType;

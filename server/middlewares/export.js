@@ -10,6 +10,7 @@ exports = module.exports = function(req, res, next)
 {
 	var format = req.query.format //导出格式，csv/excel/json/xml
 	var resource = req.query.resource //导出模型
+	var app = req.query.app //所在app
 	var fields = req.query.fields; //导出字段
 	var encodingTo = req.query.encodingTo || "GB2312"; //csv编码格式
 	var fieldNames = req.query.fieldNames || ""; //导出字段名
@@ -20,7 +21,7 @@ exports = module.exports = function(req, res, next)
 	var fieldsArr = fields.split(",");
 	var fieldNamesArr = fieldNames.split(",");
 	var populates = req.query.populates || "";//category_id,tags
-	var ResourceModel = require('../models/'+resource.substr(0,resource.length-1));
+	var ResourceModel = require('../apps/'+app+'/models/'+resource.substr(0,resource.length-1));
 	var populatesArr = populates.split(",")
 	var exportFileName = resource
 	var selects = {}

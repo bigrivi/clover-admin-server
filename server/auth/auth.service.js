@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
 var compose = require('composable-middleware');
-var UserModel = require('../models/user');
 
 
 function signToken(uid,jwtTokenSecret){

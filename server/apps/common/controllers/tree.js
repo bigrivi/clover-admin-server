@@ -1,8 +1,8 @@
 var fs = require("fs")
 var async = require('async')
 var _ = require('underscore');
-var AttachmentModel = require('../models/attachment');
-var DepartmentModel = require('../models/department');
+var AttachmentModel = require('../../uploader/models/attachment');
+var DepartmentModel = require('../../account/models/department');
 
 var onPostBefore= function(req, res, next)
 {

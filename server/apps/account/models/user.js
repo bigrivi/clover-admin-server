@@ -1,7 +1,8 @@
 var restful = require('node-restful'),
     mongoose = require('mongoose');
-	
-var User = new restful.model(
+
+
+var model = new restful.model(
    'user',
 	mongoose.Schema({
      username: 'string',
@@ -14,4 +15,5 @@ var User = new restful.model(
 	 creation_on: 'date',
 	 avatar: 'string'
   })).methods(['get', 'post', 'put', 'delete'])
-exports = module.exports = User;
+  
+exports = module.exports = model;

@@ -2,7 +2,7 @@ var fs = require("fs")
 var async = require('async')
 var util = require('util')
 var _ = require('underscore');
-var tree = require('./tree');
+var tree = require('../../common/controllers/tree');
 
 
 var onGetBefore= function(req, res, next)
