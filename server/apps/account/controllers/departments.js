@@ -3,16 +3,16 @@ var async = require('async')
 var util = require('util')
 var _ = require('underscore');
 var tree = require('../../common/controllers/tree');
-
-
+var DepartmentModel = require('../models/department');
+var treeUtil = tree(DepartmentModel);
 var onGetBefore= function(req, res, next)
-{
+{	
 	if(req.params.id){
 		next()
 	}
 	else{
 		var populates = {path: 'leader',select: 'realname',}
-		tree.getTreeData(req.query.parentId,true,populates,function(list){
+		treeUtil.getTreeData(req.query.parentId,true,populates,function(list){
 			var right = [];
 			_.each(list,function(row,index){
 				if(right.length>0){
@@ -38,13 +38,9 @@ var onGetBefore= function(req, res, next)
 	
 }
 
+
 var self = {
-	onGetBefore:onGetBefore
+	onGetBefore:onGetBefore,
 }
-_.defaults(self, tree);
-
-
-
-
-
+_.defaults(self, treeUtil);
 exports = module.exports = self
