@@ -6,6 +6,7 @@ METHODS:
     post: 新增
     put: 修改
     delete: 删除
+    export: 导出
     analytics: 统计分析
     print: 打印
 DATA_TYPES:

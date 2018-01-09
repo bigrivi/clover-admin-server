@@ -1,4 +1,8 @@
 alias: product
+auth_nodes:
+    - product.product.*
+    - product.category.*
+    - product.tag.*
 navs:
     System Manager:
         children:
