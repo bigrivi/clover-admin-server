@@ -23,7 +23,7 @@ exports = module.exports = function(app){
 			});
 			apps.forEach(function(appName){
 				console.log("============="+appName+"=================")
-				var router = require("./apps/"+appName+"/router")();
+				var router = require("./apps/"+appName+"/router")(app);
 				router.forEach(function(models){
 					var model = models[0]; //model
 					var key = models[1]; //key

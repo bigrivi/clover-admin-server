@@ -1,0 +1,48 @@
+ERRORS:
+    required: 必填
+    unique: 必须唯一
+METHODS:
+    get: 查看
+    post: 新增
+    put: 修改
+    delete: 删除
+    analytics: 统计分析
+    print: 打印
+DATA_TYPES:
+    Integer: 整数
+    Decimal: 小数
+    Other: 其他
+    Date: 日期
+WIDGETS:
+    Text Widget: 单行文本
+    Textarea Widget: 多行文本
+    Number Widget: 数字
+    Password Widget: 密码
+    Email Widget: 邮件
+    Select Widget: 下拉选择
+    Radio Widget: 单选框
+    Checkbox Widget: 复选框
+    Hidden Widget: 隐藏域
+    Date Widget: 日期选择
+    Datetime Widget: 日期+时间选择
+    Item Select Widget: 项目选择
+    Select3 Widget: select3选择器
+    Input With Checkbox Widget: 带选择框的文本框
+
+
+
+APP_DESCRIPTION: " "
+
+Add New: 新增
+Export: 导出
+Address: 地址
+Alias: 别名
+All: 全部
+Data Model Manage: 数据模型管理
+Organization Manage: 组织架构管理
+Data List: 数据列表
+Type List: 类型列表
+Company Profile: 公司资料
+System Preference: 系统设置
+System Manager: 系统管理
+Product Manag: 产品管理

@@ -1,20 +1,20 @@
 alias: product
 navs:
-    System Preference:
+    System Manager:
         children:
-            Organization Manage:
-                app: account
-                icon: sitemap
+            Product Manage:
+                app: product
+                icon: nb-keypad
                 children:
-                    Users List:
-                        app: account
+                    Product:
+                        app: product
                         icon: users
-                        link: account/userInfo
-                    Department:
-                        app: account
-                        link: account/department
+                        link: product/product
+                    Category:
+                        app: product
+                        link: product/category
                         icon: sitemap
-                    Role Manage:
-                        app: account
+                    Tag:
+                        app: product
                         icon: male
-                        link: account/authRole
+                        link: product/tag

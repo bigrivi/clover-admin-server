@@ -4,7 +4,7 @@ navs:
         children:
             Organization Manage:
                 app: account
-                icon: sitemap
+                icon: nb-gear
                 children:
                     Users List:
                         app: account
@@ -14,7 +14,7 @@ navs:
                         app: account
                         link: account/department
                         icon: sitemap
-                    Role Manage:
+                    Role List:
                         app: account
-                        icon: male
-                        link: account/authRole
+                        link: account/rolelist
+                        icon: sitemap
