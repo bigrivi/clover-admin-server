@@ -22,17 +22,17 @@ exports = module.exports = function(app){
 				}
 			});
 			apps.forEach(function(appName){
-				console.log("============="+appName+"=================")
+				//console.log("============="+appName+"=================")
 				var router = require("./apps/"+appName+"/router")(app);
 				router.forEach(function(models){
 					var model = models[0]; //model
 					var key = models[1]; //key
-					console.log("module:"+key+"")
+					//console.log("module:"+key+"")
 					//token验证
-					//model.before('get',authService.userLoginRequire)
-					//model.before('put',authService.userLoginRequire)
-					//model.before('post',authService.userLoginRequire)
-					//model.before('delete',authService.userLoginRequire)
+					model.before('get',authService.userLoginRequire)
+					model.before('put',authService.userLoginRequire)
+					model.before('post',authService.userLoginRequire)
+					model.before('delete',authService.userLoginRequire)
 					try{
 						var controller = require("./apps/"+appName+"/controllers/"+key);
 						if(controller["onPutBefore"]){ //修改前

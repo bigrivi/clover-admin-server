@@ -37,7 +37,7 @@ exports = module.exports = function(req, res, next)
 	_.each(populatesArr,function(item){
 		model.populate({path: item,select: 'name-_id'})
 	})
-	req.quer.exec(function(err,data){
+	model.exec(function(err,data){
 		var formatData = _.map(data,function(row){
 			var formatRow = {};
 			_.each(fieldsArr,function(fieldName){

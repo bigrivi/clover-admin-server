@@ -1,6 +1,7 @@
-APP_NAME: 用户系统
+APP_NAME: 账户系统
 Auth Node: 授权节点
 Auth Role: 用户角色
+User Role: 用户角色
 Account: 账户
 Authorize: 授权
 Belongs To App: 属于模块

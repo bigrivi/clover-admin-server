@@ -26,7 +26,7 @@ exports.i18n = function(req, res, next)
 				results.push(nav1)
 			})
 			res.json(results)
-			console.log(JSON.stringify(results,null,2));
+			//console.log(JSON.stringify(results,null,2));
 		}
 		
 		

@@ -9,6 +9,7 @@ var AuthNodeSchema = mongoose.Schema({
  node: String,
  app:String
 });
+var peddingTasks = []
 var AuthNodeModel = mongoose.model('auth_node', AuthNodeSchema);
 db.once('open', function callback () {
   console.log("connection success");
@@ -25,6 +26,21 @@ db.once('open', function callback () {
 });	
 
 
+function processNextTask(){
+	var task = peddingTasks.shift()
+	task.save(function (err) {
+        if(err) {
+            console.error(err);
+        }
+		if(peddingTasks.length>0)
+			processNextTask()
+		else
+			console.log("all complate")
+    })
+}
+
+
+
 function generate(){
 	var appBasePath = path.join(__dirname, 'server/apps/');
 	var apps = []
@@ -33,39 +49,41 @@ function generate(){
 			files.forEach(function (filename) {
 				apps.push(filename)
 			});
+			peddingTasks = []
 			_.each(apps,function(app){
 				var appCfgPath = path.join(__dirname, 'server/apps/'+app+'/config.yml');
 				var doc = yaml.safeLoad(fs.readFileSync(appCfgPath, 'utf8'));
 				var auth_nodes = doc["auth_nodes"]
 				if(auth_nodes){
 					_.each(auth_nodes,function(auth_node){
-						console.log(app,auth_node);
+						//console.log(app);
 						var node_items = auth_node.split(".")
-						var app = node_items[0];
+						var appName = node_items[0];
 						var module = node_items[1];
 						var method = node_items[2];
 						if(method=="*"){
-							var all_methods = ["get","put","delete","post"];
+							var all_methods = ["get","post","put","delete"];
 							_.each(all_methods,function(method){
-								auth_node = app+"."+module+"."+method;
-								var newNode = new AuthNodeModel({ node: auth_node,app:app});
-								newNode.save();
+								auth_node = appName+"."+module+"."+method;
+								peddingTasks.push(new AuthNodeModel({ node: auth_node,app:appName}));
 							})
 						}
 						else{
-							var newNode = new AuthNodeModel({ node: auth_node,app:app});
-							newNode.save();
+							peddingTasks.push(new AuthNodeModel({ node: auth_node,app:appName}));
 						}
 						
 					})
 				}
-				
 			})
+			console.log(peddingTasks.length)
+			processNextTask()
 			
 			
 		}
 	})
 }
+
+
 
 
 	
