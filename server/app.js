@@ -22,7 +22,7 @@ app.all('*',function (req, res, next) {
 });
 app.set('view engine', 'jade');
 app.mongoose = mongoose; // used for testing
-mongoose.connect("mongodb://localhost/erp");
+mongoose.connect("mongodb://localhost/ir");
 require('./router')(app);
 app.listen(3000);
 

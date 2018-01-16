@@ -16,8 +16,8 @@ exports = module.exports = function(app){
 	fs.readdir(appBasePath, function (err, files) {
 		if (files && files.length) {
 			files.forEach(function (filename) {
-				if(filename!="common"){
-					//console.log("app:"+filename);
+				if(filename!="common" && filename!=".DS_Store"){
+					console.log("app:"+filename);
 					apps.push(filename)
 				}
 			});
@@ -47,21 +47,21 @@ exports = module.exports = function(app){
 						if(controller["onPostAfter"]){ //增加后
 							model.after('post',controller["onPostAfter"])
 						}
-						
+
 						if(controller["onGetBefore"]){ //get前
 							model.before('get',controller["onGetBefore"])
 						}
 						if(controller["onGetAfter"]){ //get后
 							model.after('get',controller["onGetAfter"])
 						}
-						
+
 						if(controller["onDeleteBefore"]){ //delete前
 							model.before('delete',controller["onDeleteBefore"])
 						}
 						if(controller["onDeleteAfter"]){ //delete后
 							model.after('delete',controller["onDeleteAfter"])
 						}
-						
+
 					}catch(error){
 						//console.log(error)
 					}
@@ -70,12 +70,12 @@ exports = module.exports = function(app){
 					model.before('post',uploader);
 					model.route('export',exportData);
 					model.register(app, "/"+appName+"/"+key);
-		
-		
+
+
 				})
 			})
 		}
 	 });
-	 
-	
+
+
 }

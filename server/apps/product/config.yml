@@ -8,7 +8,7 @@ navs:
         children:
             Product Manage:
                 app: product
-                icon: nb-keypad
+                icon: icon-home
                 children:
                     Product:
                         app: product

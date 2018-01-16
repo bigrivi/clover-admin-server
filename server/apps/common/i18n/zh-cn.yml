@@ -39,11 +39,13 @@ Export: 导出
 Address: 地址
 Alias: 别名
 All: 全部
+Home: 首页
 Data Model Manage: 数据模型管理
 Organization Manage: 组织架构管理
 Data List: 数据列表
 Type List: 类型列表
 Company Profile: 公司资料
+Research Manager: 调研管理
 System Preference: 系统设置
 System Manager: 系统管理
 Product Manag: 产品管理
@@ -51,3 +53,5 @@ edit: 编辑
 delete: 删除
 addChild: 添加子节点
 authorize: 授权
+User Manager: 用户管理
+Notification Manager: 通知管理

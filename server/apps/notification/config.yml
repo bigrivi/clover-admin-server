@@ -1,0 +1,31 @@
+alias: research
+auth_nodes:
+    - notification.home.get
+    - notification.email.*
+    - notification.sms.*
+    - notification.template.*
+    - notification.winning.*
+navs:
+    Notification Manager:
+        ord: 99
+        children:
+            Home:
+                app: notification
+                icon: icon-home
+                link: notification/home
+            Template List:
+                app: notification
+                icon: icon-speedometer
+                link: notification/template
+            Email List:
+                app: notification
+                icon: icon-speedometer
+                link: notification/email
+            Sms List:
+                app: notification
+                icon: icon-speedometer
+                link: notification/sms
+            Winning List:
+                app: notification
+                icon: icon-speedometer
+                link: notification/winning

@@ -1,25 +1,26 @@
 alias: account
 auth_nodes:
+    - account.home.get
     - account.authorize.put
     - account.userRole.*
     - account.userInfo.*
     - account.department.*
 navs:
-    System Preference:
+    User Manager:
         children:
-            Organization Manage:
+            Home:
                 app: account
-                icon: nb-gear
-                children:
-                    Users List:
-                        app: account
-                        icon: users
-                        link: account/userInfo
-                    Department:
-                        app: account
-                        link: account/department
-                        icon: sitemap
-                    Role List:
-                        app: account
-                        link: account/userRole
-                        icon: sitemap
+                icon: icon-home
+                link: account/home
+            Users List:
+                app: account
+                icon: icon-speedometer
+                link: account/userInfo
+            Department:
+                app: account
+                link: account/department
+                icon: icon-speedometer
+            Role List:
+                app: account
+                link: account/userRole
+                icon: icon-speedometer

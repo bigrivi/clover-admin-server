@@ -25,14 +25,15 @@ exports.navs = function(req, res, next)
 			  })
 			  loadNavs(authorizeNodes)
 		  })
-		  
+
 	 })
-	
+
 	function loadNavs(){
 		fs.readdir(appBasePath, function (err, files) {
 			if (files && files.length) {
 				files.forEach(function (filename) {
-					apps.push(filename)
+					if(filename!=".DS_Store")
+						apps.push(filename)
 				});
 				var navs = {}
 				var results = []
@@ -48,6 +49,7 @@ exports.navs = function(req, res, next)
 					_.each(nav1.children,function(nav2,key2){
 						console.log("_____"+key2)
 						nav2.alias = key2
+						nav2.children = nav2.children || []
 						if(nav2.children){
 							var nav3Children = []
 							_.each(nav2.children,function(nav3,key3){
@@ -60,21 +62,27 @@ exports.navs = function(req, res, next)
 						}
 						if(checkNavPermission(nav2) && nav2.children.length>0)
 							nav2Children.push(nav2)
-						
+						else if(checkNavPermission(nav2) && nav2.link)
+							nav2Children.push(nav2)
+
 					})
 					nav1.alias = key1
+					nav1.ord = nav1.ord || 0;
 					nav1.children = nav2Children;
 					if(checkNavPermission(nav1) && nav1.children.length>0)
 						results.push(nav1)
 				})
+				results = _.sortBy(results,function(item){
+					return -item.ord
+				})
 				res.json(results)
 			}
-			
-			
+
+
 		})
 	}
-	
-	
+
+
 	function checkNavPermission(nav){
 		if(!nav.link){
 			return true
@@ -84,8 +92,8 @@ exports.navs = function(req, res, next)
 			node = nav.link.split("/").join(".")+".get"
 		}
 		return authorizeNodes.indexOf(node)>=0
-		
+
 	}
-	
-	
+
+
 }

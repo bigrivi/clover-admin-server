@@ -1,0 +1,17 @@
+alias: research
+auth_nodes:
+    - research.home.get
+    - research.research.*
+navs:
+    Research Manager:
+        ord: 100
+        children:
+            Home:
+                app: research
+                icon: icon-home
+                link: research/home
+
+            Research List:
+                app: research
+                icon: icon-speedometer
+                link: research/research

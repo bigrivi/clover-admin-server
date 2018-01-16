@@ -12,7 +12,8 @@ exports.i18n = function(req, res, next)
 	fs.readdir(appBasePath, function (err, files) {
 		if (files && files.length) {
 			files.forEach(function (filename) {
-				apps.push(filename)
+				if(filename!=".DS_Store")
+					apps.push(filename)
 			});
 			var navs = {}
 			var results = {}
@@ -22,15 +23,15 @@ exports.i18n = function(req, res, next)
 				results[app] = doc
 			})
 			_.each(navs,function(nav1,key1){
-				
+
 				results.push(nav1)
 			})
 			res.json(results)
 			//console.log(JSON.stringify(results,null,2));
 		}
-		
-		
+
+
 	})
-	
-	
+
+
 }
