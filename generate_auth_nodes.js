@@ -78,7 +78,7 @@ function generate(){
 						var module = node_items[1];
 						var method = node_items[2];
 						if(method=="*"){
-							var all_methods = ["get","post","put","delete"];
+							var all_methods = ["get","post","put","delete","export"];
 							_.each(all_methods,function(method){
 								auth_node = appName+"."+module+"."+method;
 								peddingTasks.push(new AuthNodeModel({ node: auth_node,app:appName}));

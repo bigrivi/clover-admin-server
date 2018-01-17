@@ -14,32 +14,14 @@ DATA_TYPES:
     Decimal: 小数
     Other: 其他
     Date: 日期
-WIDGETS:
-    Text Widget: 单行文本
-    Textarea Widget: 多行文本
-    Number Widget: 数字
-    Password Widget: 密码
-    Email Widget: 邮件
-    Select Widget: 下拉选择
-    Radio Widget: 单选框
-    Checkbox Widget: 复选框
-    Hidden Widget: 隐藏域
-    Date Widget: 日期选择
-    Datetime Widget: 日期+时间选择
-    Item Select Widget: 项目选择
-    Select3 Widget: select3选择器
-    Input With Checkbox Widget: 带选择框的文本框
-
-
-
 APP_DESCRIPTION: " "
-
 Add New: 新增
 Export: 导出
 Address: 地址
 Alias: 别名
 All: 全部
 Home: 首页
+home: 首页
 Data Model Manage: 数据模型管理
 Organization Manage: 组织架构管理
 Data List: 数据列表
@@ -49,9 +31,15 @@ Research Manager: 调研管理
 System Preference: 系统设置
 System Manager: 系统管理
 Product Manag: 产品管理
+add: 新增
 edit: 编辑
 delete: 删除
 addChild: 添加子节点
 authorize: 授权
 User Manager: 用户管理
 Notification Manager: 通知管理
+Modules:
+    Home: 首页
+    Add: 新增
+    Edit: 修改
+    Export: 导出

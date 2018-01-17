@@ -1,8 +1,9 @@
 alias: account
 auth_nodes:
     - account.home.get
-    - account.authorize.put
+    - account.profile.put
     - account.userRole.*
+    - account.userRole.authorize.put
     - account.userInfo.*
     - account.department.*
 navs:

@@ -1,5 +1,10 @@
 APP_NAME: 产品系统
+NAV_NAME: 产品管理
 Product Manage: 产品管理
 Product: 产品
 Category: 分类
 Tag: 标签
+Modules:
+    Product: 产品
+    Category: 分类
+    Tag: 标签

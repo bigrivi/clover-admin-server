@@ -1,4 +1,5 @@
 APP_NAME: 账户系统
+NAV_NAME: 用户管理
 Auth Node: 授权节点
 Auth Role: 用户角色
 User Role: 用户角色
@@ -26,6 +27,7 @@ Login Name: 登陆名
 Password: 密码
 Realname: 姓名
 Data Model Manage: 数据模型管理
+Profile: 个人资料
 
 Company Not Exists: 公司不存在
 User Not Exists: 用户不存在
@@ -34,3 +36,10 @@ Data List: 数据列表
 Type List: 类型列表
 Company Profile: 公司资料
 User Manager: 用户管理
+Modules:
+    Profile: 资料修改
+    User Info: 用户列表
+    Department: 部门
+    User Role: 角色列表
+    Authorize: 授权
+

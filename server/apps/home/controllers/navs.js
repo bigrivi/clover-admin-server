@@ -17,13 +17,11 @@ exports.navs = function(req, res, next)
 		  if(err){
 			  callback(false);
 		  }
-		  console.log("userInfo")
-		  console.log(userInfo)
 		  AuthorizeModel.find({auth_role_id:userInfo.role_id}).populate({path: "auth_node_id"}).exec(function(err,authorizeData){
 			  _.each(authorizeData,function(item){
 				  authorizeNodes.push(item.auth_node_id.node)
 			  })
-			  loadNavs(authorizeNodes)
+			  loadNavs()
 		  })
 
 	 })
