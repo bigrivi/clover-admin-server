@@ -1,0 +1,8 @@
+APP_NAME: 问卷系统
+NAV_NAME: 问卷管理
+Question Manager: 问卷管理
+Home: 首页
+Question List: 问卷管理
+Question: 问卷
+Modules:
+    Question: 问卷管理

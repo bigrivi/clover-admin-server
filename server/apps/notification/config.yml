@@ -7,7 +7,7 @@ auth_nodes:
     - notification.winning.*
 navs:
     Notification Manager:
-        ord: 99
+        ord: 98
         children:
             Home:
                 app: notification

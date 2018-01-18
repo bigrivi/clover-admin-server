@@ -15,31 +15,31 @@ DATA_TYPES:
     Other: 其他
     Date: 日期
 APP_DESCRIPTION: " "
-Add New: 新增
-Delete: 删除
-Export: 导出
-Address: 地址
+Add New: New
+Delete: Delete
+Export: Export
+Address: address
 Alias: 别名
 All: 全部
-Home: 首页
-home: 首页
+Home: home
+home: home
 Data Model Manage: 数据模型管理
 Organization Manage: 组织架构管理
 Data List: 数据列表
 Type List: 类型列表
 Company Profile: 公司资料
-Research Manager: 调研管理
+Research Manager: Research Manage
 System Preference: 系统设置
-System Manager: 系统管理
-Product Manag: 产品管理
-add: 新增
-edit: 编辑
-delete: 删除
+System Manager: System Manage
+Product Manag: Product Manage
+add: New
+edit: Edit
+delete: Delete
 addChild: 添加子节点
 authorize: 授权
-User Manager: 用户管理
-Notification Manager: 通知管理
-Question Manager: 问卷管理
+User Manager: User Manage
+Notification Manager: Notification Manage
+Question Manager: Question Manage
 Modules:
     Home: 首页
     Add: 新增
