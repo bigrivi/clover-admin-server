@@ -1,6 +1,7 @@
 const assert = require('assert');
 var path = require('path');
 var yaml = require('js-yaml');
+var sprintf = require("sprintf-js").sprintf
 
 
 module.exports = class extends think.Controller {
@@ -23,21 +24,25 @@ module.exports = class extends think.Controller {
       return true
     }
     else if(uid){
-      const userModel = this.mongoose("user","account")
+      const userModel = this.mongoose("user_info","account")
       const authService = this.service("authorize","account")
       this.userInfo = await userModel.findById(uid)
       //console.log(this.userInfo)
-      this.auth_nodes = await authService.get_auth_nodes_by_roleid(this.userInfo.role_id)
-      let check_node = this.ctx.module+"."+this.ctx.controller+"."+this.ctx.method.toLowerCase()
-      let allow_nodes = ["home.navs.get"]
-      /**
-      if(this.auth_nodes.indexOf(check_node)>=0 || allow_nodes.indexOf(check_node)>=0)
+      this.authed_nodes = await authService.get_auth_nodes_by_roleid(this.userInfo.role_id)
+      let current_action_all = sprintf("%s.%s.%s",this.ctx.module,think._.camelCase(this.ctx.controller),this.ctx.method.toLowerCase())
+      think.logger.debug("current actio:",current_action_all)
+      let allow_nodes = ["home.navs.get",
+      "account.authorize.post",
+      "account.authNode.get",
+      "account.authorize.get"]
+
+      if(this.authed_nodes.indexOf(current_action_all)>=0 || allow_nodes.indexOf(current_action_all)>=0)
         return true
       else{
         this.ctx.status = 401
         return false
       }
-      **/
+
       return true
     }
     else{

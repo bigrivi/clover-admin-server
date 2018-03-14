@@ -6,7 +6,7 @@ module.exports = class extends think.cloveradmin.rest {
     async getAction(){
         let username = this.get("username")
         let password = this.get("password")
-        const userService = this.service("user")
+        const userService = this.service("user_info")
         const authService = this.service("authorize")
         let ret = await userService.authenticate(username,password)
         if(ret==-1){

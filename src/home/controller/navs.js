@@ -3,11 +3,11 @@ var _ = require('lodash');
 module.exports = class extends think.cloveradmin.rest {
 
     async getAction() {
-        let user = this.mongoose("user")
-        const userService = this.service("user","account")
+        let user = this.mongoose("user_info")
+        const userService = this.service("user_info","account")
         const authService = this.service("authorize","account")
         let results = []
-        let auth_nodes = this.auth_nodes
+        let authed_nodes = this.authed_nodes
         function checkNavPermission(nav){
             if(!nav.link){
                 return true
@@ -16,7 +16,7 @@ module.exports = class extends think.cloveradmin.rest {
             if(!node){
                 node = nav.link.split("/").join(".")+".get"
             }
-            return auth_nodes.indexOf(node)>=0
+            return authed_nodes.indexOf(node)>=0
 
         }
         var navs = {}

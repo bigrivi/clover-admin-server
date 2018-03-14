@@ -5,7 +5,7 @@ module.exports = class extends think.cloveradmin.tree {
              lft: 'number',
              rgt: 'number',
              depth: 'number',
-             leader:{ type: 'ObjectId', ref: 'user' },
+             leader:{ type: 'ObjectId', ref: 'user_info' },
              description:'string'
           }
     }

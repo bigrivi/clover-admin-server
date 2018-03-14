@@ -74,6 +74,7 @@ function generate(){
 					_.each(auth_nodes,function(auth_node){
 						//console.log(app);
 						var node_items = auth_node.split(".")
+                        console.log(auth_node)
 						var appName = node_items[0];
 						var module = node_items[1];
 						var method = node_items[2];

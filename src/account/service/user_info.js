@@ -6,7 +6,7 @@ module.exports = class extends think.Service {
     }
 
     async authenticate(username,password){
-        let userModel = this.mongoose("user")
+        let userModel = this.mongoose("user_info")
         let userInfo = await userModel.findOne({username:username}).exec()
         if(!userInfo){
             return -1
