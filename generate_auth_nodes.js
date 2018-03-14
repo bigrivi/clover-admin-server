@@ -57,7 +57,7 @@ function processNextTask(){
 
 
 function generate(){
-	var appBasePath = path.join(__dirname, 'server/apps/');
+	var appBasePath = path.join(__dirname, 'src/');
 	var apps = []
 	fs.readdir(appBasePath, function (err, files) {
 		if (files && files.length) {
@@ -67,7 +67,7 @@ function generate(){
 			});
 			peddingTasks = []
 			_.each(apps,function(app){
-				var appCfgPath = path.join(__dirname, 'server/apps/'+app+'/config.yml');
+				var appCfgPath = path.join(__dirname, 'src/'+app+'/config.yml');
 				var doc = yaml.safeLoad(fs.readFileSync(appCfgPath, 'utf8'));
 				var auth_nodes = doc["auth_nodes"]
 				if(auth_nodes){

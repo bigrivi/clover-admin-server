@@ -17,7 +17,7 @@
       "type": "file",
       "file": {
         "timeout": 86400000,
-        "cachePath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/runtime/cache",
+        "cachePath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/runtime/cache",
         "pathDepth": 1,
         "gcInterval": 86400000
       }
@@ -51,7 +51,7 @@
     "view": {
       "type": "nunjucks",
       "nunjucks": {
-        "viewPath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/view",
+        "viewPath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/view",
         "sep": "_",
         "extname": ".html"
       }
@@ -63,14 +63,14 @@
         "backups": 10,
         "absolute": true,
         "maxLogSize": 51200,
-        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/logs/app.log"
+        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/logs/app.log"
       },
       "dateFile": {
         "level": "ALL",
         "absolute": true,
         "pattern": "-yyyy-MM-dd",
         "alwaysIncludePattern": true,
-        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/logs/app.log"
+        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/logs/app.log"
       }
     },
     "session": {
@@ -105,7 +105,7 @@
       "type": "file",
       "file": {
         "timeout": 86400000,
-        "cachePath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/runtime/cache",
+        "cachePath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/runtime/cache",
         "pathDepth": 1,
         "gcInterval": 86400000
       }
@@ -139,7 +139,7 @@
     "view": {
       "type": "nunjucks",
       "nunjucks": {
-        "viewPath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/view",
+        "viewPath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/view",
         "sep": "_",
         "extname": ".html"
       }
@@ -151,14 +151,14 @@
         "backups": 10,
         "absolute": true,
         "maxLogSize": 51200,
-        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/logs/app.log"
+        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/logs/app.log"
       },
       "dateFile": {
         "level": "ALL",
         "absolute": true,
         "pattern": "-yyyy-MM-dd",
         "alwaysIncludePattern": true,
-        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/logs/app.log"
+        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/logs/app.log"
       }
     },
     "session": {
@@ -193,7 +193,7 @@
       "type": "file",
       "file": {
         "timeout": 86400000,
-        "cachePath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/runtime/cache",
+        "cachePath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/runtime/cache",
         "pathDepth": 1,
         "gcInterval": 86400000
       }
@@ -227,7 +227,7 @@
     "view": {
       "type": "nunjucks",
       "nunjucks": {
-        "viewPath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/view",
+        "viewPath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/view",
         "sep": "_",
         "extname": ".html"
       }
@@ -239,14 +239,14 @@
         "backups": 10,
         "absolute": true,
         "maxLogSize": 51200,
-        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/logs/app.log"
+        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/logs/app.log"
       },
       "dateFile": {
         "level": "ALL",
         "absolute": true,
         "pattern": "-yyyy-MM-dd",
         "alwaysIncludePattern": true,
-        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/logs/app.log"
+        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/logs/app.log"
       }
     },
     "session": {
@@ -281,7 +281,7 @@
       "type": "file",
       "file": {
         "timeout": 86400000,
-        "cachePath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/runtime/cache",
+        "cachePath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/runtime/cache",
         "pathDepth": 1,
         "gcInterval": 86400000
       }
@@ -315,7 +315,7 @@
     "view": {
       "type": "nunjucks",
       "nunjucks": {
-        "viewPath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/view",
+        "viewPath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/view",
         "sep": "_",
         "extname": ".html"
       }
@@ -327,14 +327,14 @@
         "backups": 10,
         "absolute": true,
         "maxLogSize": 51200,
-        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/logs/app.log"
+        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/logs/app.log"
       },
       "dateFile": {
         "level": "ALL",
         "absolute": true,
         "pattern": "-yyyy-MM-dd",
         "alwaysIncludePattern": true,
-        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/logs/app.log"
+        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/logs/app.log"
       }
     },
     "session": {
@@ -369,7 +369,7 @@
       "type": "file",
       "file": {
         "timeout": 86400000,
-        "cachePath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/runtime/cache",
+        "cachePath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/runtime/cache",
         "pathDepth": 1,
         "gcInterval": 86400000
       }
@@ -403,7 +403,7 @@
     "view": {
       "type": "nunjucks",
       "nunjucks": {
-        "viewPath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/view",
+        "viewPath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/view",
         "sep": "_",
         "extname": ".html"
       }
@@ -415,14 +415,14 @@
         "backups": 10,
         "absolute": true,
         "maxLogSize": 51200,
-        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/logs/app.log"
+        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/logs/app.log"
       },
       "dateFile": {
         "level": "ALL",
         "absolute": true,
         "pattern": "-yyyy-MM-dd",
         "alwaysIncludePattern": true,
-        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/logs/app.log"
+        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/logs/app.log"
       }
     },
     "session": {
@@ -457,7 +457,7 @@
       "type": "file",
       "file": {
         "timeout": 86400000,
-        "cachePath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/runtime/cache",
+        "cachePath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/runtime/cache",
         "pathDepth": 1,
         "gcInterval": 86400000
       }
@@ -491,7 +491,7 @@
     "view": {
       "type": "nunjucks",
       "nunjucks": {
-        "viewPath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/view",
+        "viewPath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/view",
         "sep": "_",
         "extname": ".html"
       }
@@ -503,14 +503,14 @@
         "backups": 10,
         "absolute": true,
         "maxLogSize": 51200,
-        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/logs/app.log"
+        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/logs/app.log"
       },
       "dateFile": {
         "level": "ALL",
         "absolute": true,
         "pattern": "-yyyy-MM-dd",
         "alwaysIncludePattern": true,
-        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/logs/app.log"
+        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/logs/app.log"
       }
     },
     "session": {
@@ -545,7 +545,7 @@
       "type": "file",
       "file": {
         "timeout": 86400000,
-        "cachePath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/runtime/cache",
+        "cachePath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/runtime/cache",
         "pathDepth": 1,
         "gcInterval": 86400000
       }
@@ -579,7 +579,7 @@
     "view": {
       "type": "nunjucks",
       "nunjucks": {
-        "viewPath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/view",
+        "viewPath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/view",
         "sep": "_",
         "extname": ".html"
       }
@@ -591,14 +591,14 @@
         "backups": 10,
         "absolute": true,
         "maxLogSize": 51200,
-        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/logs/app.log"
+        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/logs/app.log"
       },
       "dateFile": {
         "level": "ALL",
         "absolute": true,
         "pattern": "-yyyy-MM-dd",
         "alwaysIncludePattern": true,
-        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/logs/app.log"
+        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/logs/app.log"
       }
     },
     "session": {
@@ -633,7 +633,7 @@
       "type": "file",
       "file": {
         "timeout": 86400000,
-        "cachePath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/runtime/cache",
+        "cachePath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/runtime/cache",
         "pathDepth": 1,
         "gcInterval": 86400000
       }
@@ -667,7 +667,7 @@
     "view": {
       "type": "nunjucks",
       "nunjucks": {
-        "viewPath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/view",
+        "viewPath": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/view",
         "sep": "_",
         "extname": ".html"
       }
@@ -679,14 +679,14 @@
         "backups": 10,
         "absolute": true,
         "maxLogSize": 51200,
-        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/logs/app.log"
+        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/logs/app.log"
       },
       "dateFile": {
         "level": "ALL",
         "absolute": true,
         "pattern": "-yyyy-MM-dd",
         "alwaysIncludePattern": true,
-        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/server/logs/app.log"
+        "filename": "/Users/nickxin/WorkSpace/ionic/projects/clover-admin/serve/clover-admin-server/logs/app.log"
       }
     },
     "session": {
