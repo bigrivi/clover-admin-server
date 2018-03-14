@@ -1,0 +1,16 @@
+APP_NAME: 通知管理系统
+NAV_NAME: 通知管理
+Home: 首页
+Template List: 模板管理
+Email List: 已发送邮件
+Sms List: 已发送短信
+Winning List: 中奖管理
+Email: 已发送邮件
+Sms: 已发送短信
+Winning: 中奖管理
+Template: 模板管理
+Modules:
+    Email: 已发送邮件
+    Sms: 已发送短信
+    Winning: 中奖管理
+    Template: 模板管理

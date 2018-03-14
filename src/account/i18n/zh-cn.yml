@@ -1,0 +1,45 @@
+APP_NAME: 账户系统
+NAV_NAME: 用户管理
+Auth Node: 授权节点
+Auth Role: 用户角色
+User Role: 用户角色
+Account: 账户
+Authorize: 授权
+Belongs To App: 属于模块
+Department: 部门
+department: 部门
+Logout: 安全退出
+My Profile: 个人资料
+Preference: 个人首选项
+User Preference: 个人首选项
+Role Manage: 用户角色管理
+Role Authorize: 角色授权
+Organization Manage: 组织机构管理
+Role List: 角色列表
+Users List: 用户列表
+User: 用户
+User Info: 用户信息
+Avatar: 用户头像
+Authorize Success: 授权成功
+Add Child Department: 新增子部门
+Leader: 负责人
+Login Name: 登陆名
+Password: 密码
+Realname: 姓名
+Data Model Manage: 数据模型管理
+Profile: 个人资料
+
+Company Not Exists: 公司不存在
+User Not Exists: 用户不存在
+Password doesn't match: 密码错误
+Data List: 数据列表
+Type List: 类型列表
+Company Profile: 公司资料
+User Manager: 用户管理
+Modules:
+    Profile: 资料修改
+    User Info: 用户列表
+    Department: 部门
+    User Role: 角色列表
+    Authorize: 授权
+

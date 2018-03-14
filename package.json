@@ -1,38 +1,16 @@
 {
-  "name": "clover-admin-server",
-  "description": "",
-  "version": "0.0.1",
-  "peerDependencies": {
-    "mongoose": "~4"
-  },
-  "devDependencies": {
-    "express": "4.12.4",
-    "body-parser": "1.12.4",
-    "method-override": "2.3.3",
-    "mongodb": "2.0.33",
-    "jade": "1.11.0",
-    "mocha": "2.2.5",
-    "mongoose": "~4",
-    "should": "6.0.3",
-    "supertest": "1.0.1",
-    "sinon": "1.15.3",
-    "pow-mongodb-fixtures": "git+https://github.com/riyadhalnur/pow-mongodb-fixtures.git#upgrade-mongodb-drivers",
-    "morgan": "1.5.3"
-  },
-  "keywords": [
-    "node-restful",
-    "framework",
-    "rest",
-    "api"
-  ],
+  "name": "server",
+  "description": "application created by thinkjs",
+  "version": "1.0.0",
+  "author": "andy",
   "scripts": {
-    "test": "make test",
-    "start": "supervisor node --max-old-space-size=1700 ./server/app"
+    "start": "node development.js ",
+    "test": "THINK_UNIT_TEST=1 nyc ava test/ && nyc report --reporter=html",
+    "compile": "babel --no-babelrc src/ --presets think-node --out-dir app/",
+    "lint": "eslint src/",
+    "lint-fix": "eslint --fix src/"
   },
-  "main": "index.js",
   "dependencies": {
-    "async": "^2.6.0",
-    "bcryptjs": "^2.4.3",
     "composable-middleware": "^0.3.0",
     "encoding": "^0.1.12",
     "excel-export": "^0.5.1",
@@ -41,9 +19,51 @@
     "json2csv": "^3.11.5",
     "jsonwebtoken": "^8.1.0",
     "lodash": "^4.17.4",
-    "memory-cache": "^0.2.0",
-    "node-restful": "^0.2.6",
-    "underscore": "1.8.3",
+    "mongoose": "^5.0.9",
+    "think-cache": "^1.0.0",
+    "think-cache-file": "^1.0.8",
+    "think-logger3": "^1.0.0",
+    "think-model": "^1.0.0",
+    "think-model-mysql": "^1.0.0",
+    "think-mongo": "^1.0.8",
+    "think-mongoose": "^1.0.3",
+    "think-session": "^1.0.0",
+    "think-session-file": "^1.0.5",
+    "think-session-jwt": "^1.0.7",
+    "think-view": "^1.0.0",
+    "think-view-nunjucks": "^1.0.1",
+    "thinkjs": "^3.2.6",
     "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-think-node": "^1.0.0",
+    "node-notifier": "^5.0.2",
+    "think-inspect": "0.0.2",
+    "think-babel": "^1.0.3",
+    "think-watcher": "^3.0.0",
+    "eslint": "^4.2.0",
+    "eslint-config-think": "^1.0.0",
+    "ava": "^0.18.0",
+    "nyc": "^7.0.0"
+  },
+  "repository": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=7.6.0"
+  },
+  "readmeFilename": "README.md",
+  "thinkjs": {
+    "metadata": {
+      "name": "server",
+      "description": "application created by thinkjs",
+      "author": "andy",
+      "babel": true
+    },
+    "projectName": "server",
+    "templateName": "/usr/local/lib/node_modules/think-cli/default_template",
+    "cacheTemplatePath": "/Users/nickxin/.think-templates/-usr-local-lib-node_modules-think-cli-default_template",
+    "clone": false,
+    "isMultiModule": true
   }
 }
