@@ -31,7 +31,8 @@ module.exports = class extends think.Controller {
       this.authed_nodes = await authService.get_auth_nodes_by_roleid(this.userInfo.role_id)
       let current_action_all = sprintf("%s.%s.%s",this.ctx.module,think._.camelCase(this.ctx.controller),this.ctx.method.toLowerCase())
       think.logger.debug("current actio:",current_action_all)
-      let allow_nodes = ["home.navs.get",
+      let allow_nodes = [
+      "home.navs.get",
       "account.authorize.post",
       "account.authNode.get",
       "account.authorize.get"]
