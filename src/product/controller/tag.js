@@ -7,21 +7,9 @@ module.exports = class extends think.cloveradmin.rest {
 
 
     __before() {
-        if(this.ctx.isMethod("get")){
-            //console.log("tag get")
-        }
-        else if(this.ctx.isMethod("post")){
-            //console.log("tag post")
-        }
-
         return Promise.resolve(super.__before()).then(data => {
             return data
         })
-
-   }
-
-
-   async _beforeInsert(){
 
    }
 

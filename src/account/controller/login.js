@@ -1,7 +1,5 @@
 module.exports = class extends think.cloveradmin.rest {
-    constructor(ctx) {
-        super(ctx);
-    }
+
 
     async getAction(){
         let username = this.get("username")
