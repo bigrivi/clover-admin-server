@@ -3,7 +3,7 @@ auth_nodes:
     - account.home.get
     - account.profile.put
     - account.userRole.*
-    - account.userRole.authorize.put
+    - account.authorize.put
     - account.userInfo.*
     - account.department.*
 navs:

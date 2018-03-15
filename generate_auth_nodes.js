@@ -10,11 +10,12 @@ var AuthNodeSchema = mongoose.Schema({
  app:String
 });
 var peddingTasks = []
-var AuthNodeModel = mongoose.model('auth_node', AuthNodeSchema);
+var AuthNodeModel = mongoose.model('auth_node', AuthNodeSchema,"auth_node");
 db.once('open', function callback () {
   console.log("connection success");
-  generate();
-  /**
+  //generate();
+
+
   AuthNodeModel.remove({}, function(err, res){ //remove old data
         if (err) {
             console.log("Error:" + err);
@@ -24,15 +25,15 @@ db.once('open', function callback () {
         }
 		generate()
     })
-    **/
+
 
 });
 
 
 function processNextTask(){
 	var task = peddingTasks.shift()
-    //console.log(task)
     AuthNodeModel.find({node: task.node,app:task.app},function(err,docs){
+        console.log(task.node,docs.length)
         if(docs.length<=0){
             task.save(function (err) {
                 if(err) {

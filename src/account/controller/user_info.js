@@ -14,4 +14,7 @@ module.exports = class extends think.cloveradmin.rest {
         this.ctx.post("password_hash",hashed)
    }
 
+
+
+
 };

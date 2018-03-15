@@ -1,9 +1,9 @@
 module.exports = class extends think.cloveradmin.rest {
 
 
-     async postAction(){
+     async putAction(){
         const AuthorizeModel = this.mongoose("authorize")
-        var role_id = this.post("role_id")
+        var role_id = this.id
         var nodes = this.post("nodes")
         await AuthorizeModel.remove({auth_role_id:role_id})
         for(const auth_node_id of nodes){

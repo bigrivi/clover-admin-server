@@ -1,7 +1,16 @@
 const assert = require('assert');
+const mongoose = require('mongoose');
+
 var path = require('path');
 var yaml = require('js-yaml');
 var sprintf = require("sprintf-js").sprintf
+
+var json2csv = require('json2csv');
+var encoding = require('encoding');
+var xml2js = require('xml2js');
+var nodeExcel = require('excel-export');
+
+const json2csv2 = think.promisify(json2csv, json2csv);
 
 
 module.exports = class extends think.Controller {
@@ -20,6 +29,8 @@ module.exports = class extends think.Controller {
   async __before() {
     const uid = await this.session("uid")
     let whiteList = ["i18n","login","attachment"]
+    let current_action_all = sprintf("%s.%s.%s",this.ctx.module,think._.camelCase(this.ctx.controller),this.ctx.action.toLowerCase())
+    think.logger.debug("current actio:",current_action_all)
     if(this.ctx.method.toLowerCase()=="options" || whiteList.indexOf(this.ctx.controller)>=0){
       return true
     }
@@ -29,11 +40,8 @@ module.exports = class extends think.Controller {
       this.userInfo = await userModel.findById(uid)
       //console.log(this.userInfo)
       this.authed_nodes = await authService.get_auth_nodes_by_roleid(this.userInfo.role_id)
-      let current_action_all = sprintf("%s.%s.%s",this.ctx.module,think._.camelCase(this.ctx.controller),this.ctx.method.toLowerCase())
-      think.logger.debug("current actio:",current_action_all)
       let allow_nodes = [
       "home.navs.get",
-      "account.authorize.post",
       "account.authNode.get",
       "account.authorize.get"]
 
@@ -271,6 +279,104 @@ module.exports = class extends think.Controller {
     return this.success(info)
   }
 
+  async exportAction(){
+    var format = this.get("format") //导出格式，csv/excel/json/xml
+    var resource = this.get("resource") //导出模型
+    var app = this.get("app") //所在app
+    var fields = this.get("fields"); //导出字段
+    var encodingTo = this.get("encodingTo") || "GB2312"; //csv编码格式
+    var fieldNames = this.get("fieldNames") || ""; //导出字段名
+    var colSep = this.get("colSep") || ",";
+    var sortField = this.get("sortField") || "_id"; //排序字段
+    var sort = this.get("sort") || "desc"; //排序
+    var skipHeader = this.get("skipHeader") || true; //不显示表格头
+    var fieldsArr = fields.split(",");
+    var fieldNamesArr = fieldNames.split(",");
+    var populates = this.get("populates") || "";//category_id,tags
+    var populatesArr = populates.split(",")
+    var exportFileName = resource
+    var selects = {}
+    think._.each(fieldsArr,function(item){
+      selects[item] = 1
+    })
+    var sortOption = {}
+    if(sort=="asc")
+      sortOption[sortField] = 1;
+    else
+      sortOption[sortField] = -1;
+    let modelInstance = this.mongoose(this.get("resource"));
+    var model = modelInstance.find({},selects,{sort:sortOption})
+    think._.each(populatesArr,function(item){
+      model.populate({path: item,select: 'name-_id'})
+    })
+    let dataList = await model.exec()
+    //format
+    var formatData = think._.map(dataList,function(row){
+      var formatRow = {};
+      think._.each(fieldsArr,function(fieldName){
+        //console.log(fieldName)
+        var fieldData = row[fieldName];
+        var isType = mongoose.Types.ObjectId.isValid(fieldData);
+        if(think._.isArray(fieldData))
+          fieldData = think._.map(fieldData,function(item){return item.name||item}).join(",")
+        else if(think._.isObject(fieldData) && fieldName!="_id"){
+          fieldData = fieldData["name"] || fieldData;
+          if(fieldName==="creation_on"){
+            fieldData = dateformat('Y-m-d H:i:s',fieldData)
+          }
+        }else if(fieldName=="_id"){
+          fieldData = String(row["_id"])
+        }
+
+        formatRow[fieldName] = fieldData
+      })
+      return formatRow
+    })
+
+    if(format=="json"){
+      this.ctx.attachment(exportFileName+'.json');
+      this.ctx.body = formatData
+    }
+    else if(format == "csv"){
+        var fields = fieldsArr;
+        var fieldNames = fieldNamesArr;
+        if(fieldNames.length==0)
+          fieldNames = fields;
+        var csvData = await json2csv2({data:formatData,fields: fields,hasCSVColumnTitle:!skipHeader,fieldNames:fieldNames, del: colSep})
+        this.ctx.attachment(exportFileName+'.csv');
+        this.ctx.body = csvData
+    }else if(format=="xml"){
+        var obj = {name: resource,item: formatData};
+        var builder = new xml2js.Builder();
+        var xml = builder.buildObject(obj);
+        this.ctx.attachment(exportFileName+'.xml');
+        this.ctx.body=xml;
+    }else if(format=="excel"){
+        var conf ={};
+        var rows = []
+        conf.cols = [];
+        think._.each(fieldNamesArr,function(fieldName){
+          conf.cols.push({
+            caption:fieldName,
+            type:'string'
+          })
+        })
+        think._.each(formatData,function(row){
+          rows.push(think._.values(row))
+        })
+        conf.rows = rows;
+        var result = nodeExcel.execute(conf);
+        //this.header('Content-Type', 'application/vnd.openxmlformats');
+        //this.header("Content-Disposition", "attachment; filename=" +exportFileName+".xlsx");
+        this.ctx.type = "application/vnd.openxmlformats"
+        this.ctx.attachment(exportFileName+'.xlsx');
+        this.ctx.body=new Buffer(result,'binary');
+
+    }
+
+
+  }
+
   async _beforeInsert(){
 
   }
@@ -316,6 +422,5 @@ module.exports = class extends think.Controller {
       return;
     }
     this.setCorsHeader();
-    return super.__call();
   }
 };
