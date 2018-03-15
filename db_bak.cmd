@@ -1,1 +1,0 @@
-mongodump  -h 127.0.0.1 -d erp  -o d:\mydb

@@ -1,0 +1,1 @@
+mongodump  -h 127.0.0.1 -d dbname  -o bakpath
