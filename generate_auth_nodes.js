@@ -13,9 +13,9 @@ var peddingTasks = []
 var AuthNodeModel = mongoose.model('auth_node', AuthNodeSchema,"auth_node");
 db.once('open', function callback () {
   console.log("connection success");
-  //generate();
+  generate();
 
-
+  /*
   AuthNodeModel.remove({}, function(err, res){ //remove old data
         if (err) {
             console.log("Error:" + err);
@@ -25,6 +25,7 @@ db.once('open', function callback () {
         }
 		generate()
     })
+    **/
 
 
 });

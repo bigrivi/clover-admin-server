@@ -325,7 +325,18 @@ module.exports = class extends think.Controller {
     else
       sortOption[sortField] = -1;
     let modelInstance = this.mongoose(this.get("resource"));
-    var model = modelInstance.find({},selects,{sort:sortOption})
+    let where = {}
+
+    //gender__equals=male
+    let getData = this.get()
+    think._.each(getData,function(value,key){
+        if(key.indexOf("__equals")>=0){
+          let matchField = key.replace("__equals","")
+          where[matchField] = value
+        }
+    })
+
+    var model = modelInstance.find(where,selects,{sort:sortOption})
     think._.each(populatesArr,function(item){
       model.populate({path: item,select: 'name-_id'})
     })
