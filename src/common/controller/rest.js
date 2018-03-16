@@ -24,11 +24,12 @@ module.exports = class extends think.Controller {
     this.id = this.getId();
     assert(think.isFunction(this.model), 'this.model must be a function');
     this.modelInstance = this.mongoose(this.resource);
+    this.api_version = this.ctx.headers["version"]?this.ctx.headers["version"].replace(/\./g,""):""
 
   }
   async __before() {
     const uid = await this.session("uid")
-    let whiteList = ["i18n","login","attachment"]
+    let whiteList = ["i18n","login","attachment","user_info"]
     let current_action_all = sprintf("%s.%s.%s",this.ctx.module,think._.camelCase(this.ctx.controller),this.ctx.action.toLowerCase())
     think.logger.debug("current actio:",current_action_all)
     if(this.ctx.method.toLowerCase()=="options" || whiteList.indexOf(this.ctx.controller)>=0){
@@ -89,6 +90,9 @@ module.exports = class extends think.Controller {
 
 
   async detailAction(){
+   if(this.api_version && this.apiMethodIsExist("detailAction")){
+      return await this["detailAction_"+this.api_version]()
+    }
     let data;
     var quer = this.modelInstance.findById(this.id);
     this.filter(quer)
@@ -103,6 +107,9 @@ module.exports = class extends think.Controller {
 
 
   async listAction(){
+    if(this.api_version && this.apiMethodIsExist("listAction")){
+      return await this["listAction_"+this.api_version]()
+    }
     let data;
     var quer = this.modelInstance.find({})
     this.filter(quer)
@@ -113,6 +120,10 @@ module.exports = class extends think.Controller {
     }
     else
       return this.success(data);
+  }
+
+  apiMethodIsExist(methodName){
+    return !!this[methodName+"_"+this.api_version]
   }
 
 
@@ -225,6 +236,9 @@ module.exports = class extends think.Controller {
    * @return {Promise} []
    */
   async postAction() {
+   if(this.api_version && this.apiMethodIsExist("postAction")){
+      return await this["postAction_"+this.api_version]()
+    }
     await this._beforeInsert()
     const pk = this.modelInstance.pk;
     const data = this.post();
@@ -241,6 +255,9 @@ module.exports = class extends think.Controller {
    * @return {Promise} []
    */
   async deleteAction() {
+   if(this.api_version && this.apiMethodIsExist("deleteAction")){
+      return await this["deleteAction_"+this.api_version]()
+    }
     if (!this.id) {
       return this.fail('params error');
     }
@@ -259,6 +276,9 @@ module.exports = class extends think.Controller {
    * @return {Promise} []
    */
   async putAction() {
+    if(this.api_version && this.apiMethodIsExist("putAction")){
+      return await this["putAction_"+this.api_version]()
+    }
     if (!this.id) {
       return this.fail('params error');
     }
