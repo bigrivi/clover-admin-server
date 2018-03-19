@@ -29,7 +29,7 @@ module.exports = class extends think.Controller {
   }
   async __before() {
     const uid = await this.session("uid")
-    let whiteList = ["i18n","login","attachment"]
+    let whiteList = ["i18n","login","attachment","region"]
     let current_action_all = sprintf("%s.%s.%s",this.ctx.module,think._.camelCase(this.ctx.controller),this.ctx.action.toLowerCase())
     think.logger.debug("current actio:",current_action_all)
     if(this.ctx.method.toLowerCase()=="options" || whiteList.indexOf(this.ctx.controller)>=0){
@@ -97,12 +97,10 @@ module.exports = class extends think.Controller {
     var quer = this.modelInstance.findById(this.id);
     this.filter(quer)
     data = await quer.exec();
-    if(this.get("limit") && this.get("skip")){
-        var count = await quer.limit(0).skip(0).count()
-        this.success({data:data,record_count:count});
+    if(this.methodIsExist("_beforeItemResponse")){
+      await this._beforeItemResponse(data)
     }
-    else
-      return this.success(data);
+    return this.success(data);
   }
 
 
@@ -114,6 +112,9 @@ module.exports = class extends think.Controller {
     var quer = this.modelInstance.find({})
     this.filter(quer)
     data = await quer.exec();
+    if(this.methodIsExist("_beforeListResponse")){
+      await this._beforeListResponse(data)
+    }
     if(this.get("limit") && this.get("skip")){
         var count = await quer.limit(0).skip(0).count()
         this.success({data:data,record_count:count});
@@ -124,6 +125,11 @@ module.exports = class extends think.Controller {
 
   apiMethodIsExist(methodName){
     return !!this[methodName+"_"+this.api_version]
+  }
+
+
+  methodIsExist(methodName){
+    return !!this[methodName]
   }
 
 

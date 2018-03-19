@@ -6,6 +6,7 @@ module.exports = class extends think.cloveradmin.model {
              customer:"string",
              quanity: 'number',
              reamrk:"string",
+             region:"string",
              order_date:'date'
           }
     }
