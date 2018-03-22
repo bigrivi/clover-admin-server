@@ -79,6 +79,7 @@
         "cookie": {
           "name": "thinkjs"
         },
+        "timeout": 1800,
         "secret": "secret",
         "tokenType": "header",
         "tokenName": "accesstoken",
@@ -167,6 +168,7 @@
         "cookie": {
           "name": "thinkjs"
         },
+        "timeout": 1800,
         "secret": "secret",
         "tokenType": "header",
         "tokenName": "accesstoken",
@@ -255,6 +257,7 @@
         "cookie": {
           "name": "thinkjs"
         },
+        "timeout": 1800,
         "secret": "secret",
         "tokenType": "header",
         "tokenName": "accesstoken",
@@ -343,6 +346,7 @@
         "cookie": {
           "name": "thinkjs"
         },
+        "timeout": 1800,
         "secret": "secret",
         "tokenType": "header",
         "tokenName": "accesstoken",
@@ -431,6 +435,7 @@
         "cookie": {
           "name": "thinkjs"
         },
+        "timeout": 1800,
         "secret": "secret",
         "tokenType": "header",
         "tokenName": "accesstoken",
@@ -519,6 +524,7 @@
         "cookie": {
           "name": "thinkjs"
         },
+        "timeout": 1800,
         "secret": "secret",
         "tokenType": "header",
         "tokenName": "accesstoken",
@@ -607,6 +613,7 @@
         "cookie": {
           "name": "thinkjs"
         },
+        "timeout": 1800,
         "secret": "secret",
         "tokenType": "header",
         "tokenName": "accesstoken",
@@ -695,6 +702,7 @@
         "cookie": {
           "name": "thinkjs"
         },
+        "timeout": 1800,
         "secret": "secret",
         "tokenType": "header",
         "tokenName": "accesstoken",
@@ -783,6 +791,7 @@
         "cookie": {
           "name": "thinkjs"
         },
+        "timeout": 1800,
         "secret": "secret",
         "tokenType": "header",
         "tokenName": "accesstoken",

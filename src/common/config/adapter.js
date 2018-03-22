@@ -6,7 +6,6 @@ const {Console, File, DateFile} = require('think-logger3');
 const path = require('path');
 const isDev = think.env === 'development';
 const JWTSession = require('./jwt_session');
-const fileCache = require('think-cache-file');
 
 /**
  * cache adapter config
@@ -112,11 +111,12 @@ exports.session = {
   },
   jwt: {
     handle: JWTSession,
+    timeout:30*60, //超时时间(单位为秒)
     secret: 'secret',  // secret is reqired
     tokenType: 'header', // ['query', 'body', 'header', 'cookie'], 'cookie' is default
     tokenName: 'accesstoken', // if tokenType not 'cookie', this will be token name, 'jwt' is default
     sign: {
-        // sign options is not required
+
     },
     verify: {
         // verify options is not required

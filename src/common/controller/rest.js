@@ -28,8 +28,10 @@ module.exports = class extends think.Controller {
 
   }
   async __before() {
+    this.setCorsHeader();
     const uid = await this.session("uid")
-    let whiteList = ["i18n","login","attachment","region"]
+    console.log("sessionId",uid)
+    let whiteList = ["i18n","login","attachment","region","heartbeart"]
     let current_action_all = sprintf("%s.%s.%s",this.ctx.module,think._.camelCase(this.ctx.controller),this.ctx.action.toLowerCase())
     think.logger.debug("current actio:",current_action_all)
     if(this.ctx.method.toLowerCase()=="options" || whiteList.indexOf(this.ctx.controller)>=0){
@@ -39,7 +41,8 @@ module.exports = class extends think.Controller {
       const userModel = this.mongoose("user_info","account")
       const authService = this.service("authorize","account")
       this.userInfo = await userModel.findById(uid)
-      //console.log(this.userInfo)
+      let newToken = await this.session('uid', uid);
+      this.ctx.res.setHeader("Token",newToken)
       this.authed_nodes = await authService.get_auth_nodes_by_roleid(this.userInfo.role_id)
       let allow_nodes = [
       "home.navs.get",
@@ -441,9 +444,12 @@ module.exports = class extends think.Controller {
 
    setCorsHeader(){
     this.header("Access-Control-Allow-Origin", this.header("origin") || "*");
-    this.header("Access-Control-Allow-Headers", "x-requested-with");
+    this.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, Token");
     this.header("Access-Control-Request-Method", "GET,POST,PUT,DELETE");
     this.header("Access-Control-Allow-Credentials", "true");
+    this.header("Access-Control-Expose-Headers", "Token");
+
+
   }
 
 
@@ -452,7 +458,6 @@ module.exports = class extends think.Controller {
 
   __call() {
     let method = this.ctx.method.toLowerCase();
-    console.log("unfound")
     if(method === "options"){
       this.setCorsHeader();
       this.ctx.res.end();

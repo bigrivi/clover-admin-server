@@ -63,8 +63,11 @@ class JWTSession {
    * auto save session data when it is change
    */
   async autoSave() {
+    const exp = Math.floor(Date.now() / 1000) + this.options.timeout
     const data = helper.extend({}, this.data);
-    delete data.exp;
+    data["exp"] = exp
+   // console.log("jwt session data save")
+   // console.log(data)
     delete data.iat;
     delete data.nbf;
     delete data.aud;
