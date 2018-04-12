@@ -17,6 +17,7 @@ DATA_TYPES:
 APP_DESCRIPTION: " "
 Add New: 新增
 Delete: 删除
+Edit: 修改
 Export: 导出
 Address: 地址
 Alias: 别名

@@ -112,7 +112,21 @@ module.exports = class extends think.Controller {
       return await this["listAction_"+this.api_version]()
     }
     let data;
-    var quer = this.modelInstance.find({})
+    var quer
+    let searchKeyword = this.get("searchKeyword")
+    if(searchKeyword && this.get("searchOrFields")){
+      let orFields = this.get("searchOrFields").split(' ')
+      let findWhere = []
+      orFields.forEach(function(field){
+        let obj = {}
+        obj[field] = new RegExp(searchKeyword,"i")
+        findWhere.push(obj);
+      })
+      quer = this.modelInstance.find({"$or" :findWhere})
+    }
+    else
+      quer = this.modelInstance.find({})
+
     this.filter(quer)
     data = await quer.exec();
     if(this.methodIsExist("_beforeListResponse")){
