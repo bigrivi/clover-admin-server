@@ -46,6 +46,10 @@ module.exports = class extends think.Controller {
       this.authed_nodes = await authService.get_auth_nodes_by_roleid(this.userInfo.role_id)
       let allow_nodes = [
       "home.navs.get",
+      "dataModel.parameter.get",
+      "dataModel.parameter.put",
+      "dataModel.parameter.post",
+      "dataModel.parameter.delete",
       "account.authNode.get",
       "account.authorize.get"]
 

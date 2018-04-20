@@ -1,0 +1,4 @@
+alias: dataModel
+auth_nodes:
+    - dataModel.parameter.*
+navs:
