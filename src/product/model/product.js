@@ -9,7 +9,7 @@ module.exports = class extends think.cloveradmin.model {
                 producing_area:'string',
                 serial_number:'string',
                 bar_code:'string',
-                category_id:{ type: 'ObjectId', ref: 'category' },
+                category_id:{ type: 'ObjectId', ref: 'parameter' },
                 creation_on:'date',
                 introduction:'string',
                 pic:'string',

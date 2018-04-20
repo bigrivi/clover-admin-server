@@ -115,6 +115,7 @@ module.exports = class extends think.Controller {
     if(this.api_version && this.apiMethodIsExist("listAction")){
       return await this["listAction_"+this.api_version]()
     }
+    await this._beforeList()
     let data;
     var quer
     let searchKeyword = this.get("searchKeyword")
@@ -432,6 +433,10 @@ module.exports = class extends think.Controller {
 
     }
 
+
+  }
+
+  async _beforeList(){
 
   }
 
