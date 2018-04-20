@@ -35,7 +35,9 @@ module.exports = class extends think.Controller {
     let current_action_all = sprintf("%s.%s.%s",this.ctx.module,think._.camelCase(this.ctx.controller),this.ctx.action.toLowerCase())
     think.logger.debug("current actio:",current_action_all)
     if(this.ctx.method.toLowerCase()=="options" || whiteList.indexOf(this.ctx.controller)>=0){
-      return true
+	   console.log("options:")
+	   console.log("sessionId",uid)
+       return true
     }
     else if(uid){
       const userModel = this.mongoose("user_info","account")
@@ -466,11 +468,12 @@ module.exports = class extends think.Controller {
 
 
    setCorsHeader(){
+	console.log("setCorsHeader")
     this.header("Access-Control-Allow-Origin", this.header("origin") || "*");
     this.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, Token,language,accesstoken");
-    this.header("Access-Control-Request-Method", "GET,POST,PUT,DELETE");
+    this.header("Access-Control-Allow-Methods", "GET,POST,OPTIONS,PUT,DELETE");
     this.header("Access-Control-Allow-Credentials", "true");
-    this.header("Access-Control-Expose-Headers", "*");
+    this.header("Access-Control-Expose-Headers", "Token");
 
 
   }
