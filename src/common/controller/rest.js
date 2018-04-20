@@ -467,10 +467,10 @@ module.exports = class extends think.Controller {
 
    setCorsHeader(){
     this.header("Access-Control-Allow-Origin", this.header("origin") || "*");
-    this.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, Token");
+    this.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, Token,language,accesstoken");
     this.header("Access-Control-Request-Method", "GET,POST,PUT,DELETE");
     this.header("Access-Control-Allow-Credentials", "true");
-    this.header("Access-Control-Expose-Headers", "Token");
+    this.header("Access-Control-Expose-Headers", "*");
 
 
   }
